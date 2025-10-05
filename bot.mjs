@@ -149,7 +149,6 @@ async function sendCar(car, total) {
 async function check() {
   try {
     const cars = await getCars();
-    console.log("🚀 ~ check ~ cars:", cars);
     const savedCarsId = (await readJson("./data.json")) ?? [];
     const newCarsId = [];
 
@@ -162,7 +161,6 @@ async function check() {
 
     writeJson("./data.json", newCarsId);
   } catch (error) {
-    console.log("🚀 ~ check ~ error:", error);
     sendMessage(`Error: check ${JSON.stringify(error.message)}`);
   }
 }

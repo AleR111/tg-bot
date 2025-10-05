@@ -115,7 +115,6 @@ async function getCars() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   });
-  console.log("🚀 ~ getCars ~ search:", search.status, search);
   return await search.json();
 }
 
@@ -153,7 +152,6 @@ async function check() {
 
     writeJson("./data.json", newCarsId);
   } catch (error) {
-    console.log("🚀 ~ check ~ error:", error);
     sendMessage(`Error: check ${JSON.stringify(error.message)}`);
   }
 }
