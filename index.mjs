@@ -140,7 +140,7 @@ async function check() {
 
     writeJson("./data.json", newCarsId);
   } catch (error) {
-    sendMessage("Error: check");
+    sendMessage("Error: check", error);
   }
 }
 
