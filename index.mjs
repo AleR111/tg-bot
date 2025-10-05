@@ -103,6 +103,7 @@ async function getCars() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   });
+  console.log("🚀 ~ getCars ~ search:", search.status, search);
   return await search.json();
 }
 
