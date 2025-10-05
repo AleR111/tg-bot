@@ -169,7 +169,7 @@ function execute() {
   sendMessage("🚀 ~ execute ~ start");
 
   check();
-  setInterval(check, 1000 * 60 * 3);
+  setInterval(check, 1000 * 60 * 10);
 }
 
 execute();
