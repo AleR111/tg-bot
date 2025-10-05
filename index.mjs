@@ -57,7 +57,19 @@ async function sendMessage(text) {
 async function sendPhoto(params) {
   const res = await fetch(urlPhoto, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      "User-Agent": "Mozilla/5.0",
+      Accept: "*/*",
+      Origin: "https://www.openlane.eu",
+      Referer:
+        "https://www.openlane.eu/ru/findcar?makesModels=Peugeot%2C208&fuelTypes=100001&transmissionTypes=Automatic",
+      "X-Requested-With": "XMLHttpRequest",
+      __requestverificationtoken:
+        "VqTTgAL4V01-9_R96xA5HmA2q9p2_J3QDjdE1MnAYA6m6HVVrexnJagKLWKMWCTj4_vyGeHRmTnkq-l7vbqdRhG5xDENjf6-bsB8twPHVTPqIX5sN5zXlIEj08K698fSE2qJQpB0HPX9EMWk-a8boQ2",
+      cookie:
+        "wfx_unq=aMrTVlhlH1ayWb52; _gcl_au=1.1.1560249198.1752174795; _fbp=fb.1.1756753590381.656948847958428463; _ga=GA1.1.1783393595.1756753591; drift_aid=66036dd0-d3e2-4319-a37f-703619fff57d; driftt_aid=66036dd0-d3e2-4319-a37f-703619fff57d; OptanonAlertBoxClosed=2025-09-27T18:53:05.513Z; COTWLanguage=en; _cfuvid=n4Zo.h9PuW8nrNbjGsTcjhU8tz7WQHjes5OhAwHTmCE-1759657164371-0.0.1.1-604800000; ASP.NET_SessionId=fpomw1xvx0uef3bamals41fw; __RequestVerificationToken=s3G6MWzKw8QxeJY0u7jr2sBgjYc7q-lDvYZnuJ3nCm42HJLyPwXBen8TmHPeOJZxdUQXCdnfLkU5oo-vZA5MCk43MPQ93A0S1QpWhJW_BK4QTp7s33ulUR2QG7UsNF-dTWG_h0i9J1Z4Q_9w7bQhKw2; __cf_bm=wNsTwuqTeqVq.2cLTDQbyCrR3DNGfsRz.ZrsC9DRRto-1759686616-1.0.1.1-TXSBj3k2bWcrap7HH1wcOTKBdYBKqwcrrjBgFUAaMWsprw3dZPUopCeTYShmk6QselsVyKUIwts324seMFlgO3W9oO8sn.3a0ivB7bLCbBE; OptanonConsent=isGpcEnabled=0&datestamp=Sun+Oct+05+2025+19%3A50%3A18+GMT%2B0200+(%D0%A6%D0%B5%D0%BD%D1%82%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F+%D0%95%D0%B2%D1%80%D0%BE%D0%BF%D0%B0%2C+%D0%BB%D0%B5%D1%82%D0%BD%D0%B5%D0%B5+%D0%B2%D1%80%D0%B5%D0%BC%D1%8F)&version=202508.2.0&browserGpcFlag=0&isIABGlobal=false&hosts=&consentId=d8a34c5b-8315-4293-865c-d95b2cc97067&interactionCount=2&isAnonUser=1&landingPath=NotLandingPage&groups=C0001%3A1%2CC0002%3A1%2CC0003%3A1%2CC0004%3A1&AwaitingReconsent=false&intType=1&geolocation=%3B; _ga_Q4J07RBPDY=GS2.1.s1759682867$o53$g1$t1759686618$j60$l0$h795941217; f0_uid=0cb5fd51-8ee3-4b26-8194-e30aa37d83ae.1759686619182; f0_sid=73514b94-14fb-44cd-9b96-b85b4a7cba75.1759686619182.30",
+    },
     body: JSON.stringify({
       chat_id: CHAT_ID,
       ...params,
