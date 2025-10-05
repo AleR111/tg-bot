@@ -140,6 +140,7 @@ async function check() {
 
     writeJson("./data.json", newCarsId);
   } catch (error) {
+    console.log("🚀 ~ check ~ error:", error);
     sendMessage(`Error: check ${JSON.stringify(error.message)}`);
   }
 }
