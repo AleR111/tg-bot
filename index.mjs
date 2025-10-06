@@ -123,10 +123,12 @@ async function sendCar(car, total) {
   *${car.CarNameEn}*
 
   Cost: €${car.RequestedSalesPrice}
-  End: ${car.BatchEndDate} ${car.IsBuyNow ? "Buy now" : ""}
+  End: ${car.BatchEndDate} ${car.IsBuyNow ? "Buy now" : "Dynamic"}
   Total: ${total}
 
   https://www.openlane.eu/en/car/info?auctionId=${car.AuctionId}
+
+  _from local_
   `;
 
   const res = await sendPhoto({
@@ -140,6 +142,7 @@ async function sendCar(car, total) {
 async function check() {
   try {
     const cars = await getCars();
+    console.log("🚀 ~ check ~ cars:", cars.Count)
     const savedCarsId = (await readJson("./data.json")) ?? [];
     const newCarsId = [];
 
