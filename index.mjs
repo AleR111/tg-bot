@@ -36,10 +36,10 @@ const body = {
     PageNumber: 1,
     ItemsPerPage: 20,
   },
-  UniqueSearchLogId: "4a1489f0-2d49-4665-a6a9-cd9ad7dc3698",
+  UniqueSearchLogId: "7e07e22e-048c-4d7a-99c8-1a897f9a6840",
   SavedSearchId: null,
   PageUrl:
-    "https://www.openlane.eu/ru/findcar?makesModels=Peugeot%2C208&fuelTypes=100001&transmissionTypes=Automatic",
+    "https://www.openlane.eu/en/findcar?makesModels=Peugeot%2C208&fuelTypes=100001&transmissionTypes=Automatic",
 };
 
 async function sendMessage(text) {
@@ -110,11 +110,12 @@ export async function writeJson(fileName, obj) {
 }
 
 async function getCars() {
-  const search = await fetch("https://www.openlane.eu/ru/findcarv6/search", {
+  const search = await fetch("https://www.openlane.eu/en/findcarv6/search", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   });
+  console.log("🚀 ~ getCars ~ search:", search);
   return await search.json();
 }
 
@@ -142,7 +143,7 @@ async function sendCar(car, total) {
 async function check() {
   try {
     const cars = await getCars();
-    console.log("🚀 ~ check ~ cars:", cars.Count)
+    console.log("🚀 ~ check ~ cars:", cars.Count);
     const savedCarsId = (await readJson("./data.json")) ?? [];
     const newCarsId = [];
 
@@ -160,7 +161,7 @@ async function check() {
 }
 
 function execute() {
-  sendMessage("🚀 ~ execute ~ start");
+  sendMessage("🚀 ~ execute ~ start local");
 
   check();
   setInterval(check, 1000 * 60 * 3);
